@@ -8,7 +8,7 @@
 # text.split - разбивка массива на каждое слово
 ##########################################################
 
-#Task one
+#Task_one
 
 a = 1
 b = 2.1
@@ -21,15 +21,15 @@ inns_1 = ['21231235', '21231234', '21231233', '21231232','21231232']
 inns_2 = ('91231236', '81231237', '71231238', '61231239')
 
 
-#Task two
+#Task_two
 
-second = input("Введите данные"":")
+second = input("Введите данные:")
 if second.isdigit():
     print("Спасибо за введенные цифры")
     second = int(second)
 else:
     print("Вам необходимо ввести цифры")
-    second = input("Введите данные"":")
+    second = input("Введите данные:")
 
 hour = second/3600
 minute = hour/60
@@ -38,11 +38,8 @@ print(hour)
 print(minute)
 print(second)
 
-#Task three
-a = int(input("Введите данные"":"))
-if a > 0 and a<=9:
-  print(a)
-else:
-  print("Вам необходимо ввести число от 1 до 9")
-  a = int(input("Введите данные"":"))
+#Task_three
+a = int(input("Введите число от 1 до 9:"))
+if a > 0 and a <= 9:
+  print(str(a)+str(a+a)+str(a+a+a))
 
