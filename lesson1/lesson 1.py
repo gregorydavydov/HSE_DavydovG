@@ -81,5 +81,4 @@ print(side_3)
 
 """
 В процессе выполнения некоторых заданий было удобней перепроверять результат через colab)
-Ссылке здесь: https://colab.research.google.com/drive/1sPzDA0XfEkpWaL0fGXJO6J_aYRPqCojm?usp=sharing
 """
