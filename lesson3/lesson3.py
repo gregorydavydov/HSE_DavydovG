@@ -84,18 +84,30 @@ with open('traders.txt') as f2:
             inn = data[ogrn]
             inn = data[address]
 
+with open('traders.json', 'r') as f2:
+    content = f2.read()
+    data = json.loads(content)
+
+
+
 """
 import json
 
-with open('traders.json','r') as f1:
-        content = f1.read()
-        data = json.loads(content)
-        print(data)
-
-with open('traders.txt') as f2:
-    for line in enumerate(f2):
-        inn_list = [line.strip() for line in f2]
+with open('traders.txt') as f1:
+    for line in enumerate(f1):
+        inn_list = [line.strip() for line in f1]
         print(inn_list)
+
+with open('traders.json', 'r') as f2:
+    for line in f2:
+        line = line.strip()
+        dict_ = json.loads(line)
+        if inn_list in dict_:
+            inn_list = dict_[inn]
+            inn_list = dict_[address]
+            inn_list = dict_[address]
+
+
 
 
 
