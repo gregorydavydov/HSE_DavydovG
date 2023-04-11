@@ -28,12 +28,12 @@ with open('traders.json', 'r') as f2:
 
 # 3. Сохраняем информацию в новом файле
 with open('traders.csv', 'w', encoding='utf-8') as f3:
-    f3.write('INN, OGRN, ADDRESS\n')
+    f3.write('Информация об организациях:\n')
     for org in org_list:
         inn = org['inn']
         ogrn = org['ogrn']
         address = org['address']
-        f3.write(f'{inn}, {ogrn}, {address}\n')
+        f3.write(f'ИНН:{inn}, ОГРН: {ogrn}, Адрес: {address}\n')
 
 
 
