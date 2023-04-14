@@ -43,14 +43,15 @@ def find_emails(file_json): # Функция, которая принимает 
             publisher_inn = message['publisher_inn']
             msg_text = message['msg_text']
             emails = re.findall(r'\b[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Z|a-z]{2,}\b', msg_text)
+            # Поиск всех адресов электронной почте в msg_text на основе регулярного выражения
             if emails:
                 if publisher_inn not in emails_data:
                     emails_data[publisher_inn] = set()
                 emails_set = set(emails) # Множество адресов электронной почты
-                emails_data[publisher_inn].update(emails_set) # Обновляет множество электронных адресов
-    return emails_data
+                emails_data[publisher_inn].update(emails_set) # Обновляет множество электронных адресов для каждого ИНН
+    return emails_data # Возвращаем словарь
 
-emails_data = find_emails('1000_efrsb_messages.json')
+emails_data = find_emails('1000_efrsb_messages.json') # Обращаемся к файлу json
 print(emails_data)
 
 
