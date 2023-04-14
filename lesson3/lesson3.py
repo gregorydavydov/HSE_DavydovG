@@ -38,6 +38,7 @@ with open('traders.csv', 'w', encoding='utf-8') as f3: # Сохраняем ин
 
 import json
 import re
+
 def find_emails(file_json): # Функция, которая принимает в себя файл '1000_efrsb_messages.json'
     emails_data = {} # Пустой словарь
     with open(file_json, 'r') as f:
