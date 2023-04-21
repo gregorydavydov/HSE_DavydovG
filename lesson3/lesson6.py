@@ -17,16 +17,16 @@ with open('meetings.ics','r', encoding='utf-8') as f:
         'location': event.location,
         'description': event.description,
         }
-        name_value = events_dict['name'][18:33]# Определяем количество выводимых символов из 'name'
+        name_value = events_dict['name'][18:33] # Определяем количество выводимых символов из 'name'
         start_time = event.begin.datetime
         end_time = event.end.datetime
         location = event.location
         if start_time == datetime(1, 1, 1, 0, 0, tzinfo=pytz.utc):
             if end_time == datetime(1, 1, 2, 0, 0, tzinfo=pytz.utc):
                 if location == None:
-                    continue
+                    continue # Пропускаем сведения из datetime и None
 
-        data.append({
+        data.append({ # Переносим результат в data
             'case_number': name_value,
             'start': str(start_time),
             'end': str(end_time),
@@ -34,7 +34,7 @@ with open('meetings.ics','r', encoding='utf-8') as f:
             'description': event.description
         })
 
-with open('meetings.json','w') as meets2write:
+with open('meetings.json','w') as meets2write: # Сохраняем данные из data в новый json файл
     json.dump(data, meets2write)
 
 
