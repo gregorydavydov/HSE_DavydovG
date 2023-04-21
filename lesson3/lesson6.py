@@ -24,7 +24,7 @@ with open('meetings.ics','r', encoding='utf-8') as f:
         if start_time == datetime(1, 1, 1, 0, 0, tzinfo=pytz.utc):
             if end_time == datetime(1, 1, 2, 0, 0, tzinfo=pytz.utc):
                 if location == None:
-                    continue # Пропускаем сведения из datetime и None
+                    continue # Пропускаем None и сведения из datetime
 
         data.append({ # Переносим результат в data
             'case_number': name_value,
