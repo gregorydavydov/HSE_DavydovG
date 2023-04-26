@@ -1,4 +1,7 @@
 from datetime import datetime
+
+# ДЗ 7
+
 class CourtCase:
     def __init__(self, case_number, case_participants, listening_datetimes, in_finished, verdict):
         self.case_number = case_number
