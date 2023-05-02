@@ -51,7 +51,7 @@ a.verdict
 
 class DistanceSell:
   def __init__(self, list_products, period_refuse):
-    self.list_product = list_products
+    self.list_products = list_products
     self.period_refuse = period_refuse
   def type_products(self, type):
     self.list_products = ['medicine','cosmetic','textile','domestic chemicals','furniture','technically complex', 'non-periodic publications', 'animals']
