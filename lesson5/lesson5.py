@@ -53,8 +53,8 @@ def binary_search(list_numbers2, key):
     return index
 
 
-list_numbers2 = [10, 20, 30, 40, 50]
-key = 30
+list_numbers2 = [123214870, 123214880, 123214890, 123214900, 123214910, 123214920]
+key = 123214890
 
 result = binary_search(list_numbers2, key)
 if (result == -1):
