@@ -26,11 +26,11 @@ class ParserCBRF:
     def __table_data(self, table_json ):
         with open(table_json, "w") as table2write:
             json.dump(self.table, table2write)
-    def run(self):
+    def start(self):
         self.__get_info()
         self.__table_data("result.json")
 
 if __name__ == "__main__":
     pars = ParserCBRF()
-    pars.run()
+    pars.start()
 
