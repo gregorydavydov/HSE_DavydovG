@@ -1,48 +1,47 @@
 #ДЗ 13
 
+from datetime import date
 import requests
 from bs4 import BeautifulSoup
+import json
 
-"""
-url_p = /?UniDbQuery.Posted=True&UniDbQuery.From=17.09.2013&UniDbQuery.To=19.05.2023 - 
-CBR_URL = "https://cbr.ru/hd_base/KeyRate/"
+class ParserCBRF:
+    def __init__(self):
+        self.url = ""
+    def __today_date(self):
+        today = date.today().strftime("%d.%m.%Y")
+        return today
+    def __get_page(self):
+        url = f"https://cbr.ru/currency_base/daily/?" \
+              f"UniDbQuery.Posted=True&" \
+              f"UniDbQuery.To={self.__today_date()}"
+        r = requests.get(url)
+        return r.text
+    def __get_info(self):
+        html = self.__get_page()
+        soup = BeautifulSoup(html, "html.parser")
+        table = [i.text for i in soup.find("table", class_="data").find_all("td")]
+        self.table = table
 
-def get_page(url):
-    url = f"https://www.cbr.ru/hd_base/KeyRate/?" \
-          f"UniDbQuery.Posted=True&" \
-          f"UniDbQuery.From=17.09.2013&" \
-          f"UniDbQuery.To={today_human_date()}"
-    r = requests.get(url)
-    return r.text
+    def __table_data(self, table_json):
+        with open(table_json, "w", encoding="utf-8") as table2write:
+            json.dump(self.table, table2write, ensure_ascii=False)
 
-
-def main():
-    html = get_page(url)
-    soup = BeautifulSoup(html, "html.parser")
-    table_data = [i.text for i in soup.find("table", "data").find_all("td")]
-    pass
-
-if __name__ == "__main__":
-    main()
-
-"""
-CBR_URL = "https://cbr.ru/hd_base/KeyRate/"
-
-def get_page(url):
-    r = requests.get(url)
-    return r.text
-
-def main():
-    html = get_page(CBR_URL)
-    soup = BeautifulSoup(html, "html.parser")
-    table_data = [i.text for i in soup.find("table", "data").find_all("td")]
+    def start(self):
+        self.__get_info()
+        self.__table_data("result.json")
 
 
-    pass
 
 if __name__ == "__main__":
-    main()
-    pass
+    pars = ParserCBRF()
+    pars.start()
+
+
+
+
+
+
 
 
 
